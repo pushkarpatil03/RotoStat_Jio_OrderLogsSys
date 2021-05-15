@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate') %> 
+
+<div class="card borderless mb-3" style="max-width: 1080px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img class="img-fluid img-thumbnail rounded d-block p-2" src="https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80" width="400" height="400" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title"><strong>Delivery Order Details : </strong></h3>
+          <h5 class="card-text">Posting Date : <%= order.PostingDate %></h5>
+          <h5 class="card-text">Material : <%= order.MatName %></h5>
+          <h5 class="card-text">Material Code : <%= order.MatCode %></h5>
+          <h5 class="card-text">Material Descripton  : <%= order.MatDesc %></h5>
+          <h5 class="card-text">Circle : <%= order.Circle %></h5>
+          <h5 class="card-text">Received Quantity : <%= order.RecQuan %></h5>
+          <h5 class="card-text">Accepted Quantity : <%= order.AccQuan %></h5>
+          <h5 class="card-text">Rejected Quantity : <%= order.RejectQuan %></h5>
+          <h5 class="card-text">Status : <%= order.Status %></h5>
+          <h5 class="card-text">Purchase Order Number : <%= order.PO %></h5>
+          <h5 class="card-text">Vendor Code : <%= order.VendorCode %></h5>
+          <h5 class="card-text">Vendor Name : <%= order.VendorName %></h5>
+          <h5 class="card-text">Material Document Code : <%= order.InvoiceNum %></h5>
+          <h5 class="card-text">Reference : <%= order.Ref %></h5>
+          <h5 class="card-text">Remarks : <%= order.Remarks %></h5>
+        <!-- <p class="card-text"><small class="text-muted">Last Transfer 5 days ago.</small></p> -->
+            <a class="card-link btn btn-info" href="/orders/<%=order._id%>/edit">Edit</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<form class="d-inline" action="/orders">
+    <button class="btn btn-primary">Back</button>
+</form>
+<form class="d-inline" action="/">
+    <button class="btn btn-primary">Home</button>
+</form>

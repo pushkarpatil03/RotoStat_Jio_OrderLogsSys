@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate') %> 
+
+<h1 class="text-center m-3 font-monospace fw-bold">All Orders</h1>
+
+<table class="table table-striped table-hover table-borderless table-responsive my-3 py-3">
+    <caption>Lists of Order details</caption>
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Posting Date</th>
+        <th scope="col">Material Document No.</th>
+        <th scope="col">Material</th>
+        <th scope="col">Purchase Order</th>
+        <th scope="col">Vendors Name</th>
+        <th scope="col">Received Quantity</th>
+        <th scope="col">Status</th>
+        <th scope="col">More Details</th>
+      </tr>
+    </thead>
+
+    <% for (let order of orders) { %>
+        <tbody>
+        <tr>
+        <th scope="row"><%= order.PostingDate %> </th>
+        <td><%= order.InvoiceNum %> </td>
+        <td><%= order.MatName %> </td>
+        <td><%= order.PO %> </td>
+        <td><%= order.VendorName %> </td>
+        <td><%= order.RecQuan %> </td>
+        <td><%= order.Status %> </td>
+        <td><a href="orders/<%= order._id  %>"><button class="btn btn-info">View</button></a> </td>
+        </tr>
+        </tbody>
+    <% } %>  
+
+</table>
+
+<form class="d-inline" action="/">
+    <button class="btn btn-primary">Home</button>
+</form>
+
+
+
+

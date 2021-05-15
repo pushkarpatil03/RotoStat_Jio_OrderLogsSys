@@ -1,0 +1,73 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <h1 class="text-center">Edit Order</h1>
+    <div class="col-6 offset-3">
+        <form action="/orders/<%=order._id%>?_method=PUT" method="POST">
+            <div class="mb-3">                                                                      
+                <label class="form-label" for="PostingDate">Posting Date</label>
+                <input class="form-control" type="text" id="PostingDate" name="order[PostingDate]" value="<%=order.PostingDate%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="MatName">Material Name</label>
+                <input class="form-control" type="text" id="MatName" name="order[MatName]" value="<%=order.MatName%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="MatCode">Material Code</label>
+                <input class="form-control" type="number" id="MatCode" name="order[MatCode]" value="<%=order.MatCode%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="MatDesc">Material Description</label>
+                <input class="form-control" type="text" id="MatDesc" name="order[MatDesc]" value="<%=order.MatDesc%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="Circle">Circle</label>
+                <input class="form-control" type="text" id="Circle" name="order[Circle]" value="<%=order.Circle%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="RecQuan">Received Quantity</label>
+                <input class="form-control" type="number" id="RecQuan" name="order[RecQuan]" value="<%=order.RecQuan%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="AccQuan">Accepted Quantity</label>
+                <input class="form-control" type="number" id="AccQuan" name="order[AccQuan]" value="<%=order.AccQuan%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="RejectQuan">Rejected Quantity</label>
+                <input class="form-control" type="number" id="RejectQuan" name="order[RejectQuan]" value="<%=order.RejectQuan%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="Status">Status</label>
+                <input class="form-control" type="text" id="Status" name="order[Status]" value="<%=order.Status%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="PO">Purchase Order Number</label>
+                <input class="form-control" type="number" id="PO" name="order[PO]" value="<%=order.PO%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="VendorCode">Vendor Code</label>
+                <input class="form-control" type="number" id="VendorCode" name="order[VendorCode]" value="<%=order.VendorCode%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="VendorName">Vendor Name</label>
+                <input class="form-control" type="text" id="VendorName" name="order[VendorName]" value="<%=order.VendorName%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="InvoiceNum">Material Document Number</label>
+                <input class="form-control" type="number" id="InvoiceNum" name="order[InvoiceNum]" value="<%=order.InvoiceNum%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="Ref">Reference</label>
+                <input class="form-control" type="text" id="Ref" name="order[Ref]" value="<%=order.Ref%>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="Remarks">Remarks</label>
+                <input class="form-control" type="text" id="Remarks" name="order[Remarks]" value="<%=order.Remarks%>">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-info">Update Order</button>
+            </div>
+        </form>
+        <a href="/orders/<%= order._id%>">Back To Order</a>
+
+    </div>
+</div>
