@@ -1,7 +1,11 @@
+//Rotostat order logs system
+
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
+const catchAsync = require('./utils/catchAsync');
+const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
 const Order = require('./models/order');
 
@@ -31,71 +35,51 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-app.get('/orders', async (req, res) => {
+app.get('/orders', catchAsync(async (req, res) => {
     const orders = await Order.find({});
     res.render('orders/index', { orders });
-});
+}));
 
 app.get('/orders/new', (req, res) => {
     res.render('orders/new');
 });
 
-app.post('/orders', async (req, res) => {
+app.post('/orders', catchAsync(async (req, res) => {
     const order = new Order(req.body.order);
     await order.save();
     res.redirect(`/orders/${order._id}`)
-});
+}));
 
-app.get('/orders/:id', async (req, res,) => {
+app.get('/orders/:id', catchAsync(async (req, res,) => {
     const order = await Order.findById(req.params.id);
     const orders = await Order.find({});
     res.render('orders/show', { order, orders });
-});
+}));
 
-app.get('/orders/:id/edit', async (req, res) => {
+app.get('/orders/:id/edit', catchAsync(async (req, res) => {
     const order = await Order.findById(req.params.id);
     res.render('orders/edit', { order });
-});
+}));
 
-app.put('/orders/:id', async (req, res) => {
+app.put('/orders/:id', catchAsync(async (req, res) => {
     const { id } = req.params;
     const order = await Order.findByIdAndUpdate(id, { ...req.body.order });
     res.redirect(`/orders/${order._id}`)
-});
-/* 
-app.get('/orders/new', (req, res) => {
-    res.render('orders/new');
-})
+}));
 
-app.post('/orders', async (req, res) => {
-    const order = new Order(req.body.order);
-    await order.save();
-    res.redirect(`/orders/${order._id}`)
-})
 
-app.get('/orders/:id', async (req, res,) => {
-    const order = await Order.findById(req.params.id)
-    res.render('orders/show', { order });
+
+//break
+
+app.all('*', (req, res, next) => {
+    next(new ExpressError('Page Not Found', 404))
 });
 
-app.get('/orders/:id/edit', async (req, res) => {
-    const order = await Order.findById(req.params.id)
-    res.render('orders/edit', { order });
-})
-
-app.put('/orders/:id', async (req, res) => {
-    const { id } = req.params;
-    const order = await Order.findByIdAndUpdate(id, { ...req.body.order });
-    res.redirect(`/orders/${order._id}`)
+app.use((err, req, res, next) => {
+    const { statusCode = 500 } = err;
+    if (!err.message) err.message = 'Oh No, Something Went Wrong!'
+    res.status(statusCode).render('error', { err })
 });
-
-app.delete('/orders/:id', async (req, res) => {
-    const { id } = req.params;
-    await Order.findByIdAndDelete(id);
-    res.redirect('/orders');
-})
- */
-
 
 app.listen(3000, () => {
     console.log('Serving on port 3000')
