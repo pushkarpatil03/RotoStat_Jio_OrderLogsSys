@@ -25,6 +25,9 @@
           <h5 class="card-text">Remarks : <%= order.Remarks %></h5>
         <!-- <p class="card-text"><small class="text-muted">Last Transfer 5 days ago.</small></p> -->
             <a class="card-link btn btn-info" href="/orders/<%=order._id%>/edit">Edit</a>
+            <form class="d-inline" action="/orders/<%=order._id%>?_method=DELETE" method="POST">
+              <button class="btn btn-danger">Delete</button>
+            </form>
         </div>
       </div>
     </div>
