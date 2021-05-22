@@ -17,7 +17,7 @@ db.once('open', function() {
 
 const seedDB = async () => {
     await Order.deleteMany({});
-    for (let i=0; i<11; i++) {
+    for (let i=0; i<73; i++) {
         const odetails = new Order({
             InvoiceNum: `${orders[i].invoice_no}`,     //NR (Not required when order is rejected)
             PostingDate: `${orders[i].posting_date}`,
