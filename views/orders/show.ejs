@@ -18,7 +18,8 @@
           <h5 class="card-text">Rejected Quantity : <%= order.RejectQuan %></h5>
           <h5 class="card-text">Status : <%= order.Status %></h5>
           <h5 class="card-text">Purchase Order Number : <%= order.PO %></h5>
-          <h5 class="card-text">Vendor Code : <%= order.VendorCode %></h5>
+          <h5 class="card-text">Vendor Code : <a href="/orders?VendorCode=<%= order.VendorCode %>"><%= order.VendorCode %></a></h5>
+          <!-- /orders?vcode= -->
           <h5 class="card-text">Vendor Name : <%= order.VendorName %></h5>
           <h5 class="card-text">Material Document Code : <%= order.InvoiceNum %></h5>
           <h5 class="card-text">Reference : <%= order.Ref %></h5>

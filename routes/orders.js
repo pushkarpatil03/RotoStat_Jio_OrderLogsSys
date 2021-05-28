@@ -17,9 +17,19 @@ const validateOrder = (req, res, next) => {
 }
 
 router.get('/', catchAsync(async (req, res) => {
-    const orders = await Order.find({});
-    res.render('orders/index', { orders });
+    const { VendorCode } = req.query;
+    if (VendorCode) {
+        const orders = await Order.find({ VendorCode });
+        res.render('orders/index', { orders, VendorCode });
+    } else {
+        const orders = await Order.find({});
+        res.render('orders/index', { orders, VendorCode: 'All' });
+    }
 }));
+
+/* router.get('/sort', catchAsync(async (req, res) => {
+    res.render('orders/sort');
+})); */
 
 router.get('/new', (req, res) => {
     res.render('orders/new');
