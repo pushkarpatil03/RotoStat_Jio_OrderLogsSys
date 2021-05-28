@@ -38,7 +38,7 @@ router.get('/new', (req, res) => {
 router.post('/', validateOrder, catchAsync(async (req, res, next) => {
     const order = new Order(req.body.order);
     await order.save();
-    req.flash('success', 'Successfully made a Order log!');
+    req.flash('success', 'Successfully made an order log!');
     res.redirect(`/orders/${order._id}`)
 }));
 

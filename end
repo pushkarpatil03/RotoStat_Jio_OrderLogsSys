@@ -1,0 +1,29 @@
+[33mcommit 83a71a98091a5a33e7fc454b15a7e07fce0df5ad[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Pushkar Patil <pushkarpatil03@gmail.com>
+Date:   Fri May 28 13:25:04 2021 +0530
+
+    added filtering route for orders and updates
+
+[33mcommit 78d531098663bf6cec24556e589c49b6168fe920[m
+Author: Pushkar Patil <pushkarpatil03@gmail.com>
+Date:   Sat May 22 23:05:25 2021 +0530
+
+    added new data to seeds DB and updated home route
+
+[33mcommit 61f3f23826c3f0aa5c16d6ca6942ca771a7eec1d[m
+Author: Pushkar Patil <pushkarpatil03@gmail.com>
+Date:   Mon May 17 23:03:25 2021 +0530
+
+    added server-side validations, flash and restructure
+
+[33mcommit 1c83d53f28bb5e3128a7537b1891aae4450c67ca[m
+Author: Pushkar Patil <pushkarpatil03@gmail.com>
+Date:   Sun May 16 20:53:25 2021 +0530
+
+    added basic error handling and client-side validations
+
+[33mcommit c9802308e96d17d89dadfa6265a0414d1440bf21[m
+Author: Pushkar Patil <pushkarpatil03@gmail.com>
+Date:   Sat May 15 22:54:05 2021 +0530
+
+    Basic CRUD done and added basic styles
